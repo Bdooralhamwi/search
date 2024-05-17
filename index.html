@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Filter</title>
+  </head>
+  <style>
+    table,
+    th,
+    td {
+      border: 2px solid black;
+      text-align: center;
+      
+    }
+
+    input {
+      margin-bottom: 10px;
+      border: 1px solid blue;
+    }
+  </style>
+  <body>
+    <!-- ## START HERE ##-->
+    <input type="text" name="search" id="search" placeholder="Search..." />
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>bdoor</td>
+          <td>10</td>
+          <td>0987654321</td>
+        </tr>
+        <tr>
+          <td>ahmad</td>
+          <td>34</td>
+          <td>1234567890</td>
+        </tr>
+        <tr>
+          <td>reem</td>
+          <td>44</td>
+          <td>1234509879</td>
+        </tr>
+        <tr>
+          <td>salam</td>
+          <td>45</td>
+          <td>1234509879</td>
+        </tr>
+        <tr>
+          <td>safa</td>
+          <td>17</td>
+          <td>1098765432</td>
+        </tr>
+        <tr>
+          <td>yousf</td>
+          <td>12</td>
+          <td>1234509879</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      const searchInput = document.getElementById("search");
+      const rows = document.querySelectorAll("tbody tr");
+      console.log(rows);
+      searchInput.addEventListener("keyup", function (event) {
+        const q = event.target.value.toLowerCase();
+        rows.forEach((row) => {
+          row.querySelector("td").textContent.toLowerCase().startsWith(q)
+            ? (row.style.display = "table-row")
+            : (row.style.display = "none");
+        });
+      });
+    </script>
+  </body>
+</html>
